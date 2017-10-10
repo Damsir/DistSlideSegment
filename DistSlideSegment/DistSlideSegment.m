@@ -18,6 +18,9 @@
 #define MaskColor [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:0.5]
 #define NormalColor [UIColor blackColor]
 #define ItemCount 5
+#define DSSSCREEN_WIDTH  [[UIScreen mainScreen] bounds].size.width
+#define DSSSCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define DSSHOMECOLOR [UIColor colorWithRed:60.0/255.0 green:186.0/255.0 blue:255.0/255.0 alpha:1.0]
 
 static NSString *CellId = @"DistSlideCollectionCell";
 
@@ -58,9 +61,9 @@ static NSString *CellId = @"DistSlideCollectionCell";
         _selectedIndex = 0;
         // segment宽度
         if (_itemNum <= ItemCount) {
-            segmentWidth = SCREEN_WIDTH/_itemNum;
+            segmentWidth = DSSSCREEN_WIDTH/_itemNum;
         } else {
-            segmentWidth = SCREEN_WIDTH/ItemCount;
+            segmentWidth = DSSSCREEN_WIDTH/ItemCount;
         }
         
         [self initSlideSegmentAndScrollView];
@@ -76,12 +79,12 @@ static NSString *CellId = @"DistSlideCollectionCell";
     scrollViewHeight = frame.size.height;
     // segment宽度
     if (_itemNum <= ItemCount) {
-        segmentWidth = SCREEN_WIDTH/_itemNum;
+        segmentWidth = DSSSCREEN_WIDTH/_itemNum;
     } else {
-        segmentWidth = SCREEN_WIDTH/ItemCount;
+        segmentWidth = DSSSCREEN_WIDTH/ItemCount;
     }
     
-    CGRect rect = CGRectMake(Margin,0,SCREEN_WIDTH,HeaderHeight);
+    CGRect rect = CGRectMake(Margin,0,DSSSCREEN_WIDTH,HeaderHeight);
     _layout.itemSize = CGSizeMake(segmentWidth, HeaderHeight);
     //初始化collectionView
     _collectView.frame = rect;
@@ -94,14 +97,14 @@ static NSString *CellId = @"DistSlideCollectionCell";
         //        [_collectView setContentOffset:CGPointMake((_itemNum-2-2-1)*segmentWidth, 0)];
     }
     
-    _scrollView.frame = CGRectMake(0, HeaderHeight, SCREEN_WIDTH, scrollViewHeight-HeaderHeight);
-    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * _itemNum, scrollViewHeight-HeaderHeight);
-    _scrollView.contentOffset = CGPointMake(_selectedIndex * SCREEN_WIDTH, 0);
+    _scrollView.frame = CGRectMake(0, HeaderHeight, DSSSCREEN_WIDTH, scrollViewHeight-HeaderHeight);
+    _scrollView.contentSize = CGSizeMake(DSSSCREEN_WIDTH * _itemNum, scrollViewHeight-HeaderHeight);
+    _scrollView.contentOffset = CGPointMake(_selectedIndex * DSSSCREEN_WIDTH, 0);
     
     //将控制器的视图添加到scrollView上
     for (int i=0; i<_viewsArray.count; i++) {
         UIView *view = _viewsArray[i];
-        view.frame = CGRectMake(i*SCREEN_WIDTH, 0, SCREEN_WIDTH, scrollViewHeight - HeaderHeight);
+        view.frame = CGRectMake(i*DSSSCREEN_WIDTH, 0, DSSSCREEN_WIDTH, scrollViewHeight - HeaderHeight);
     }
     
     // 下划线
@@ -116,7 +119,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
 
 #pragma mark -- 初始化sliderSegment
 - (void)initSlideSegmentAndScrollView {
-    CGRect rect = CGRectMake(Margin,0,SCREEN_WIDTH,HeaderHeight);
+    CGRect rect = CGRectMake(Margin,0,DSSSCREEN_WIDTH,HeaderHeight);
     //初始化布局类(UICollectionViewLayout的子类)
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     //设置水平方向滑动
@@ -141,8 +144,8 @@ static NSString *CellId = @"DistSlideCollectionCell";
     [self addSubview:collectView];
     
     // 底层滑动视图
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HeaderHeight, SCREEN_WIDTH, scrollViewHeight-HeaderHeight)];
-    scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*_itemNum, scrollViewHeight-HeaderHeight);
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HeaderHeight, DSSSCREEN_WIDTH, scrollViewHeight-HeaderHeight)];
+    scrollView.contentSize = CGSizeMake(DSSSCREEN_WIDTH*_itemNum, scrollViewHeight-HeaderHeight);
     scrollView.contentOffset = CGPointMake(0, 0);
     scrollView.pagingEnabled = YES;
     scrollView.showsVerticalScrollIndicator = NO;
@@ -155,7 +158,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
     //将控制器的视图添加到scrollView上
     for (int i=0; i<_viewsArray.count; i++) {
         UIView *view = _viewsArray[i];
-        view.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, scrollViewHeight-HeaderHeight);
+        view.frame = CGRectMake(i * DSSSCREEN_WIDTH, 0, DSSSCREEN_WIDTH, scrollViewHeight-HeaderHeight);
         [_scrollView addSubview:view];
     }
     
@@ -178,7 +181,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
     // UIView *underLineView = [[UIView alloc] initWithFrame:CGRectMake((segmentWidth - titleSize.width)*0.5,HeaderHeight-2,titleSize.width,2)];
     // 和按钮宽度一样宽的下划线
     UIView *underLineView = [[UIView alloc] initWithFrame:CGRectMake(0,HeaderHeight-2,segmentWidth,2)];
-    underLineView.backgroundColor = HOMECOLOR;
+    underLineView.backgroundColor = DSSHOMECOLOR;
     _underLineView = underLineView;
     [_collectView addSubview:underLineView];
 }
@@ -208,7 +211,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
     
     [fromCell.title setTextColor:NormalColor];
     [fromCell setFontScale:NO];//反选字体保持原样
-    [toCell.title setTextColor:HOMECOLOR];
+    [toCell.title setTextColor:DSSHOMECOLOR];
     [toCell setFontScale:YES];//选中字体放大
     
     _selectedIndex = toIndex;
@@ -275,7 +278,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
     cell.title.font = [UIFont systemFontOfSize:NormalSize];
     cell.backgroundColor = [UIColor whiteColor];
     if (indexPath.row == _selectedIndex) {
-        [cell.title setTextColor:HOMECOLOR];
+        [cell.title setTextColor:DSSHOMECOLOR];
         //        [cell.title setFont:[UIFont fontWithName:Font_PingFangSC_Light size:BigSize]];
         [cell.title setFont:[UIFont systemFontOfSize:BigSize]];
         
@@ -297,7 +300,7 @@ static NSString *CellId = @"DistSlideCollectionCell";
     
     //[self scrollToWithIndexPath:indexPath];
     [self setItemColorFromIndex:_selectedIndex to:indexPath.row];
-    _scrollView.contentOffset = CGPointMake(SCREEN_WIDTH * indexPath.row, 0);
+    _scrollView.contentOffset = CGPointMake(DSSSCREEN_WIDTH * indexPath.row, 0);
 }
 
 #pragma mark -- scrollViewDelegate
