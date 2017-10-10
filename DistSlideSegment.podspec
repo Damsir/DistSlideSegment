@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DistSlideSegment"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A Slide Segment"
   s.author       = { "Damrin" => "75081647@qq.com" }
   s.homepage    = 'https://github.com/Damsir/DistSlideSegment'
