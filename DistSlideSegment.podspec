@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
 
   s.name         = "DistSlideSegment"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A Slide Segment"
   s.author       = { "Damrin" => "75081647@qq.com" }
   s.homepage    = 'https://github.com/Damsir/DistSlideSegment'
-  s.source      = { :git => 'https://github.com/Damsir/DistSlideSegment.git', :tag => "s.version" }
+  s.source      = { :git => 'https://github.com/Damsir/DistSlideSegment.git', :tag => s.version }
   s.license = "MIT"
   s.platform = :ios, "8.0"
   s.requires_arc = true
