@@ -1,8 +1,8 @@
 //
 //  DistSlideCollectionCell.h
-//  LYJC
+//  DJYJC
 //
-//  Created by 吴定如 on 2017/10/10.
+//  Created by 吴定如 on 17/2/28.
 //  Copyright © 2017年 Dist. All rights reserved.
 //
 
@@ -10,8 +10,10 @@
 
 @interface DistSlideCollectionCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *title; /**< 标题 */
+/** 标题 */
+@property (weak, nonatomic) IBOutlet UILabel *title;
 
-- (void)setFontScale:(BOOL)scale;/**< 设置分类标题文字字体的缩放 */
+/** 设置分类标题文字字体的缩放 */
+- (void)setFontScale:(BOOL)scale bigSize:(CGFloat)bigSize normalSize:(CGFloat)normalSize;
 
 @end

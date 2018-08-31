@@ -1,8 +1,8 @@
 //
 //  DistSlideSegment.h
-//  LYJC
+//  DJYJC
 //
-//  Created by 吴定如 on 2017/10/10.
+//  Created by 吴定如 on 17/2/28.
 //  Copyright © 2017年 Dist. All rights reserved.
 //
 
@@ -10,9 +10,14 @@
 
 @interface DistSlideSegment : UIView
 
-/** 屏幕旋转 */
-- (void)screenRotationWithFrame:(CGRect)frame;
-/** 初始化 */
-- (instancetype)initWithFrame:(CGRect)frame controllerViewsArray:(NSArray *)viewsArray titlesArray:(NSArray *)titlesArray;
+/**
+ 分段滑动组件:SlideSegment
+
+ @param frame  frame
+ @param titles 标题数组
+ @param views  视图数组
+ @return self
+ */
+- (instancetype)initWithFrame:(CGRect)frame titlesArray:(NSArray *)titles viewsArray:(NSArray *)views;
 
 @end

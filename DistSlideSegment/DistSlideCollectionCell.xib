@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu0-ld-J0r">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgz-wK-ez6">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -27,16 +27,16 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Tu0-ld-J0r" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cF7-Ft-sff"/>
-                <constraint firstItem="Tu0-ld-J0r" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="d8l-0l-XHj"/>
-                <constraint firstAttribute="trailing" secondItem="Tu0-ld-J0r" secondAttribute="trailing" id="f3P-qz-RUw"/>
-                <constraint firstAttribute="bottom" secondItem="Tu0-ld-J0r" secondAttribute="bottom" id="pkE-NJ-HpV"/>
+                <constraint firstAttribute="bottom" secondItem="rgz-wK-ez6" secondAttribute="bottom" id="Ngg-o0-o7W"/>
+                <constraint firstAttribute="trailing" secondItem="rgz-wK-ez6" secondAttribute="trailing" id="aMW-xC-ggl"/>
+                <constraint firstItem="rgz-wK-ez6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r5e-yo-zrX"/>
+                <constraint firstItem="rgz-wK-ez6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zll-bE-36b"/>
             </constraints>
-            <size key="customSize" width="101" height="54"/>
+            <size key="customSize" width="84" height="50"/>
             <connections>
-                <outlet property="title" destination="Tu0-ld-J0r" id="EoG-ra-Kr7"/>
+                <outlet property="title" destination="rgz-wK-ez6" id="AdS-aI-ZT4"/>
             </connections>
-            <point key="canvasLocation" x="-83.5" y="20"/>
+            <point key="canvasLocation" x="-25" y="139"/>
         </collectionViewCell>
     </objects>
 </document>

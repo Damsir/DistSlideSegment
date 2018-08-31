@@ -1,38 +1,34 @@
 //
 //  DistSlideCollectionCell.m
-//  LYJC
+//  DJYJC
 //
-//  Created by 吴定如 on 2017/10/10.
+//  Created by 吴定如 on 17/2/28.
 //  Copyright © 2017年 Dist. All rights reserved.
 //
 
 #import "DistSlideCollectionCell.h"
-#define BigSize 16.0
-#define NormalSize 16.0
 
 @implementation DistSlideCollectionCell
 
-- (void)setFontScale:(BOOL)scale{
-    
+- (void)setFontScale:(BOOL)scale bigSize:(CGFloat)bigSize normalSize:(CGFloat)normalSize {
+
     if (scale) {
         // 1.3 = bigSize / normalSize
         [UIView animateWithDuration:0.3 animations:^{
-            CGAffineTransform trans = CGAffineTransformScale(_title.transform,BigSize/NormalSize,BigSize/NormalSize);
+            CGAffineTransform trans = CGAffineTransformScale(_title.transform, bigSize/normalSize, bigSize/normalSize);
             [_title setTransform:trans];
         } completion:^(BOOL finished) {
             [_title setTransform:CGAffineTransformIdentity];
-            //            [_title setFont:[UIFont fontWithName:Font_PingFangSC_Light size:BigSize]];
-            [_title setFont:[UIFont systemFontOfSize:BigSize]];
+            [_title setFont:[UIFont systemFontOfSize:bigSize]];
         }];
     } else {
         // 0.7692 = normalSize / bigSize
         [UIView animateWithDuration:0.3 animations:^{
-            CGAffineTransform trans = CGAffineTransformScale(_title.transform,NormalSize/BigSize,NormalSize/BigSize);
+            CGAffineTransform trans = CGAffineTransformScale(_title.transform, normalSize/bigSize, normalSize/bigSize);
             [_title setTransform:trans];
         } completion:^(BOOL finished) {
             [_title setTransform:CGAffineTransformIdentity];
-            //            [_title setFont:[UIFont fontWithName:Font_PingFangSC_Light size:NormalSize]];
-            [_title setFont:[UIFont systemFontOfSize:NormalSize]];
+            [_title setFont:[UIFont systemFontOfSize:normalSize]];
         }];
     }
 }
